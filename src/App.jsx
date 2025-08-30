@@ -1,8 +1,10 @@
 const Header = (props) => {
-  <>
-    <h1>{props.course}</h1>
+  return (
+    <>
+      <h1>{props.course}</h1>
 
-  </>
+    </>
+  );
 }
 
 const App = () => {
