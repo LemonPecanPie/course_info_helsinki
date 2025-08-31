@@ -37,11 +37,18 @@ const Content = ({ parts }) => {
   );
 }
 
-const Total = (props) => {
+function sumArray(arr) {
+  return arr.reduce((a, b) => a + b, 0);
+}
+
+const Total = ({parts}) => {
+  let exercisesSum = sumArray(parts.map(part => part.exercises));
   return (
+    // <>
+    //   <p>Number of exercises {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}</p>
+    // </>
     <>
-      <p>Number of exercises {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}</p>
-    </>
+    <p><b>total of {exercisesSum} exercises</b></p></>
   );
 }
 
@@ -51,6 +58,7 @@ const Course = ({ course }) => {
     <>
       <Header course={course.name} />
       <Content parts={course.parts} />
+      <Total parts={course.parts} />
     </>
   );
 }
